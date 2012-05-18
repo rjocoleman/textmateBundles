@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>if ! find_app com.litmusapp.Alkaline &amp;&gt;/dev/null; then
+   open http://litmusapp.com/alkaline/textmate/not-installed
+else
+   URL=$(ruby -rcgi -rui -e'puts CGI.escape(TextMate::UI.request_string(:default =&gt; "http://", :title =&gt; "New Litmus Test", :prompt =&gt; "Enter the URL for the new test").to_s)')
+   [[ -n "$URL" ]] &amp;&amp; open "alkaline://new?url=$URL"
+fi</string>
+	<key>input</key>
+	<string>none</string>
+	<key>name</key>
+	<string>New Litmus Browser Test...</string>
+	<key>output</key>
+	<string>discard</string>
+	<key>uuid</key>
+	<string>D82468E0-BAC0-4DD9-91AB-42CD39175750</string>
+</dict>
+</plist>
